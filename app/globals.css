@@ -47,73 +47,114 @@ html {
 	--radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Light mode - Nature conservation theme */
 :root {
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+
+	/* Base colors - Soft white background with dark green text */
+	--background: oklch(0.98 0.01 120);
+	--foreground: oklch(0.25 0.075 150);
+
+	/* Card/UI component colors */
+	--card: oklch(0.98 0.01 120);
+	--card-foreground: oklch(0.25 0.075 150);
+	--popover: oklch(0.98 0.01 120);
+	--popover-foreground: oklch(0.25 0.075 150);
+
+	/* Primary - Forest green */
+	--primary: oklch(0.46 0.14 145);
+	--primary-foreground: oklch(0.98 0.01 120);
+
+	/* Secondary - Earth tone */
+	--secondary: oklch(0.92 0.05 90);
+	--secondary-foreground: oklch(0.3 0.08 135);
+
+	/* Muted - Soft stone/clay color */
+	--muted: oklch(0.92 0.03 110);
+	--muted-foreground: oklch(0.45 0.07 130);
+
+	/* Accent - Subtle leaf green */
+	--accent: oklch(0.85 0.07 140);
+	--accent-foreground: oklch(0.3 0.12 150);
+
+	/* Destructive - Muted red, reminiscent of warning signs in nature */
+	--destructive: oklch(0.65 0.18 25);
+
+	/* UI element colors */
+	--border: oklch(0.85 0.03 135);
+	--input: oklch(0.85 0.03 135);
+	--ring: oklch(0.46 0.14 145);
+
+	/* Chart colors - Biodiversity-inspired palette */
+	--chart-1: oklch(0.55 0.18 145); /* Forest */
+	--chart-2: oklch(0.65 0.15 185); /* Water */
+	--chart-3: oklch(0.7 0.18 95); /* Earth */
+	--chart-4: oklch(0.75 0.12 65); /* Wood */
+	--chart-5: oklch(0.6 0.12 205); /* Sky */
+
+	/* Sidebar specific colors */
+	--sidebar: oklch(0.95 0.02 140);
+	--sidebar-foreground: oklch(0.25 0.075 150);
+	--sidebar-primary: oklch(0.46 0.14 145);
+	--sidebar-primary-foreground: oklch(0.98 0.01 120);
+	--sidebar-accent: oklch(0.85 0.07 140);
+	--sidebar-accent-foreground: oklch(0.3 0.12 150);
+	--sidebar-border: oklch(0.85 0.03 135);
+	--sidebar-ring: oklch(0.46 0.14 145);
 }
 
+/* Dark mode - Night forest theme */
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
+	/* Base colors - Deep forest night with pale moonlight text */
+	--background: oklch(0.15 0.03 200);
+	--foreground: oklch(0.9 0.02 120);
+
+	/* Card/UI component colors */
+	--card: oklch(0.2 0.04 190);
+	--card-foreground: oklch(0.9 0.02 120);
+	--popover: oklch(0.2 0.04 190);
+	--popover-foreground: oklch(0.9 0.02 120);
+
+	/* Primary - Glowing moss green */
+	--primary: oklch(0.65 0.15 145);
+	--primary-foreground: oklch(0.15 0.03 200);
+
+	/* Secondary - Deep earth */
+	--secondary: oklch(0.3 0.04 130);
+	--secondary-foreground: oklch(0.9 0.02 120);
+
+	/* Muted - Dark stone */
+	--muted: oklch(0.25 0.02 180);
+	--muted-foreground: oklch(0.75 0.04 140);
+
+	/* Accent - Moonlit leaves */
+	--accent: oklch(0.3 0.06 150);
+	--accent-foreground: oklch(0.9 0.02 120);
+
+	/* Destructive - Subdued warning red */
+	--destructive: oklch(0.6 0.16 25);
+
+	/* UI element colors */
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.205 0 0);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
+	--ring: oklch(0.65 0.15 145);
+
+	/* Chart colors - Nocturnal nature palette */
+	--chart-1: oklch(0.65 0.15 145); /* Moss */
+	--chart-2: oklch(0.55 0.18 190); /* Water at night */
+	--chart-3: oklch(0.7 0.18 65); /* Autumn leaf */
+	--chart-4: oklch(0.62 0.15 230); /* Night flower */
+	--chart-5: oklch(0.5 0.12 175); /* Deep forest */
+
+	/* Sidebar specific colors */
+	--sidebar: oklch(0.18 0.03 195);
+	--sidebar-foreground: oklch(0.9 0.02 120);
+	--sidebar-primary: oklch(0.65 0.15 145);
+	--sidebar-primary-foreground: oklch(0.15 0.03 200);
+	--sidebar-accent: oklch(0.3 0.06 150);
+	--sidebar-accent-foreground: oklch(0.9 0.02 120);
 	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.556 0 0);
+	--sidebar-ring: oklch(0.65 0.15 145);
 }
 
 @layer base {
