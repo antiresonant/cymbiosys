@@ -33,7 +33,7 @@ export function HeroImage({
 	return (
 		<div
 			className={cn(
-				'relative w-full h-[300px] md:h-[500px] overflow-hidden',
+				'relative w-full h-[400px] md:h-[600px] overflow-hidden',
 				className
 			)}
 		>
