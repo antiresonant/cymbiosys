@@ -1,3 +1,4 @@
+import { Contact } from '@/components/Contact';
 import { HeroImage } from '@/components/HeroImage';
 import { Products } from '@/components/Products';
 import { Services } from '@/components/Services';
@@ -23,6 +24,9 @@ export default function Home() {
 			</section>
 			<section className='w-full h-full'>
 				<Products />
+			</section>
+			<section className='w-full h-full'>
+				<Contact />
 			</section>
 		</div>
 	);
