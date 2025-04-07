@@ -12,6 +12,7 @@ import {
 	navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import {
 	Sheet,
 	SheetContent,
@@ -36,28 +37,17 @@ export function MainNav() {
 		<div className='w-full fixed top-0 z-50 bg-background/70 backdrop-blur-md shadow-sm'>
 			<div className='container mx-auto flex items-center justify-between py-4'>
 				{/* Logo */}
+				{/* Logo */}
 				<Link href='/' className='font-bold text-xl flex items-center gap-2'>
-					<svg
-						width='24'
-						height='24'
-						viewBox='0 0 24 24'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
-						className='text-primary'
-					>
-						<path
-							d='M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6Z'
-							stroke='currentColor'
-							strokeWidth='2'
+					<div>
+						<Image
+							src='/images/logo-1.png'
+							alt='Cymbiosys Logo'
+							width={40}
+							height={40}
+							priority
 						/>
-						<path
-							d='M12 8L16 12L12 16L8 12L12 8Z'
-							fill='currentColor'
-							stroke='currentColor'
-							strokeWidth='2'
-							strokeLinejoin='round'
-						/>
-					</svg>
+					</div>
 					Cymbiosys
 				</Link>
 
