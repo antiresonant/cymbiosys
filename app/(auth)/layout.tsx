@@ -6,20 +6,16 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
-	BarChart2,
 	Bell,
-	Calendar,
 	ChevronLeft,
 	ChevronRight,
 	Cog,
 	Home,
 	LogOut,
 	Map,
-	PieChart,
-	Settings,
+	Siren,
 	Sliders,
 	UserCircle,
-	Users,
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -48,29 +44,9 @@ const sidebarItems = [
 		icon: <Sliders className='h-5 w-5' />,
 	},
 	{
-		title: 'Analytics',
-		href: '/analytics',
-		icon: <BarChart2 className='h-5 w-5' />,
-	},
-	{
-		title: 'Reports',
-		href: '/reports',
-		icon: <PieChart className='h-5 w-5' />,
-	},
-	{
-		title: 'Team',
-		href: '/team',
-		icon: <Users className='h-5 w-5' />,
-	},
-	{
-		title: 'Calendar',
-		href: '/calendar',
-		icon: <Calendar className='h-5 w-5' />,
-	},
-	{
-		title: 'Settings',
-		href: '/settings',
-		icon: <Settings className='h-5 w-5' />,
+		title: 'Alerts',
+		href: '/alerts',
+		icon: <Siren className='h-5 w-5' />,
 	},
 ];
 
