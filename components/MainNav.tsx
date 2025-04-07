@@ -22,12 +22,11 @@ import {
 } from '@/components/ui/sheet';
 import { Menu, X } from 'lucide-react';
 
-const navItems = [
-	{ name: 'Home', href: '/' },
-	{ name: 'Blog', href: '/blog' },
-	{ name: 'Contact Us', href: '/contact' },
-	{ name: 'About Us', href: '/about' },
-];
+// const navItems = [
+// 	{ name: 'Home', href: '/' },
+// 	{ name: 'Contact Us', href: '#contact' },
+// 	{ name: 'About Us', href: '#about' },
+// ];
 
 export function MainNav() {
 	const pathname = usePathname();
@@ -53,7 +52,7 @@ export function MainNav() {
 
 				{/* Desktop Navigation */}
 				<div className='hidden md:flex md:items-center md:gap-8'>
-					<NavigationMenu>
+					{/* <NavigationMenu>
 						<NavigationMenuList>
 							{navItems.map((item) => (
 								<NavigationMenuItem key={item.href}>
@@ -72,7 +71,7 @@ export function MainNav() {
 								</NavigationMenuItem>
 							))}
 						</NavigationMenuList>
-					</NavigationMenu>
+					</NavigationMenu> */}
 
 					{/* Auth Buttons */}
 					<div className='flex items-center gap-2'>
@@ -136,7 +135,7 @@ export function MainNav() {
 							</SheetTitle>
 						</SheetHeader>
 
-						<nav className='flex flex-col gap-1'>
+						{/* <nav className='flex flex-col gap-1'>
 							{navItems.map((item) => (
 								<Link
 									key={item.href}
@@ -152,7 +151,7 @@ export function MainNav() {
 									{item.name}
 								</Link>
 							))}
-						</nav>
+						</nav> */}
 
 						<div className='flex flex-col gap-2 mt-8 pt-6 border-t'>
 							<Button
