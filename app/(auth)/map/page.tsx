@@ -1,19 +1,21 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import {
-	MapContainer,
-	TileLayer,
-	Marker,
-	Popup,
-	ZoomControl,
-} from 'react-leaflet';
+import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 
-import L from 'leaflet';
+// Define the animal data interface
+interface Animal {
+	id: number;
+	name: string;
+	type: string;
+	lat: number;
+	lng: number;
+	location: string;
+}
 
 // Sample animal data in Nepal, coordinates are real locations in Nepal
-const animals = [
+const animals: Animal[] = [
 	{
 		id: 1,
 		name: 'Elephant 001',
@@ -56,17 +58,6 @@ const animals = [
 	},
 ];
 
-// Create custom emoji markers for different animal types
-const createEmojiMarker = (emoji: string) => {
-	return L.divIcon({
-		html: `<div class="emoji-marker">${emoji}</div>`,
-		className: '',
-		iconSize: [40, 40],
-		iconAnchor: [20, 20],
-		popupAnchor: [0, -20],
-	});
-};
-
 // Map animal types to corresponding emojis
 const animalEmojis: Record<string, string> = {
 	elephant: '🐘',
@@ -78,88 +69,30 @@ const animalEmojis: Record<string, string> = {
 	default: '🐾',
 };
 
+// Dynamically import the Map component to prevent SSR
+const MapComponent = dynamic(() => import('@/components/Map'), {
+	ssr: false,
+	loading: () => (
+		<div className='h-[600px] w-full rounded-xl shadow-md flex items-center justify-center bg-gray-100'>
+			<div className='text-gray-500'>Loading map...</div>
+		</div>
+	),
+});
+
 export default function AnimalTrackingMap() {
 	const [selectedAnimal, setSelectedAnimal] = useState<number | null>(null);
-
-	// Fix default icon issue in NextJS
-	useEffect(() => {
-		// Only run on client side
-		if (typeof window !== 'undefined') {
-			// @ts-ignore
-			delete L.Icon.Default.prototype._getIconUrl;
-			L.Icon.Default.mergeOptions({
-				iconRetinaUrl:
-					'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-				iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-				shadowUrl:
-					'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-			});
-		}
-	}, []);
 
 	return (
 		<div>
 			<h1 className='text-3xl font-bold mb-4'>Conservation Map</h1>
 
-			<MapContainer
-				center={[28.3949, 84.124]} // Centered on Nepal
-				zoom={7} // Zoomed out to show all of Nepal
-				className='h-[600px] w-full rounded-xl shadow-md z-0'
-				zoomControl={false} // We'll add zoom control in a better position
-			>
-				<ZoomControl position='bottomright' />
-
-				<TileLayer
-					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-				/>
-
-				{/* Terrain/Topographic layer option */}
-				{/* <TileLayer
-          attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-          url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
-        /> */}
-
-				{animals.map((animal) => (
-					<Marker
-						key={animal.id}
-						position={[animal.lat, animal.lng]}
-						icon={createEmojiMarker(
-							animalEmojis[animal.type] || animalEmojis.default
-						)}
-						eventHandlers={{
-							click: () => {
-								setSelectedAnimal(animal.id);
-							},
-						}}
-					>
-						<Popup>
-							<div className='text-center'>
-								<div className='text-3xl mb-1'>
-									{animalEmojis[animal.type] || animalEmojis.default}
-								</div>
-								<strong>{animal.name}</strong>
-								<br />
-								<span className='text-sm text-gray-600'>
-									Location: {animal.location}
-									<br />
-									Latitude: {animal.lat.toFixed(4)}
-									<br />
-									Longitude: {animal.lng.toFixed(4)}
-								</span>
-								<div className='mt-2'>
-									<button
-										className='bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-2 rounded'
-										onClick={() => console.log(`Tracking animal: ${animal.id}`)}
-									>
-										Start Tracking
-									</button>
-								</div>
-							</div>
-						</Popup>
-					</Marker>
-				))}
-			</MapContainer>
+			{/* Pass the required props to the dynamic component */}
+			<MapComponent
+				animals={animals}
+				animalEmojis={animalEmojis}
+				selectedAnimal={selectedAnimal}
+				setSelectedAnimal={setSelectedAnimal}
+			/>
 
 			{/* Additional information section */}
 			<div className='mt-6 grid grid-cols-1 md:grid-cols-3 gap-4'>
