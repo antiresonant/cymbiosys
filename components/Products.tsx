@@ -39,14 +39,14 @@ const products: Product[] = [
 			{ text: 'AI-powered event detection with ultra-low power consumption' },
 		],
 		image: {
-			src: '/images/iot-device.jpg',
+			src: '/images/iot-device.png',
 			alt: 'Cymbiosys IoT wildlife monitoring device in forest setting',
 		},
 		badge: {
 			text: 'Field-tested',
 			position: 'left',
 		},
-		learnMoreUrl: '/products/iot-device',
+		learnMoreUrl: '#',
 	},
 	{
 		id: 'analytics-platform',
@@ -70,7 +70,7 @@ const products: Product[] = [
 			text: 'Cloud-based',
 			position: 'right',
 		},
-		learnMoreUrl: '/products/analytics-platform',
+		learnMoreUrl: '#',
 	},
 ];
 
