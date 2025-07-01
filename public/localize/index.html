@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cymbiosys</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #1f1f1f;
+        color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #00ffcc;
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .chart-container {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        width: 800px;
+        height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      canvas {
+        background: #ffffff;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Cymbiosys real-time sound-source localization viewport</h2>
+    <div class="chart-container">
+      <canvas id="myChart" width="900" height="900"></canvas>
+    </div>
+
+    <script>
+      const micImg = new Image();
+      micImg.src = "https://cdn-icons-png.flaticon.com/512/25/25682.png";
+      micImg.width = 16;
+      micImg.height = 16;
+
+      micImg.onload = () => {
+        chart.data.datasets[2].pointStyle = micImg;
+        chart.data.datasets[3].pointStyle = micImg;
+        chart.update();
+      };
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBO8BmzRF-GZANHMdJc0MbQ1_8In_kY-DU",
+        authDomain: "cymbiosis-78242.firebaseapp.com",
+        databaseURL:
+          "https://cymbiosis-78242-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "cymbiosis-78242",
+        storageBucket: "cymbiosis-78242.appspot.com",
+        messagingSenderId: "392213298535",
+        appId: "1:392213298535:web:58b68ecf1a4e22884943c2",
+        measurementId: "G-BMS75JQF5G",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const chart = new Chart(ctx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "Point 1 (x, y1)",
+              data: [],
+              backgroundColor: "#00bfff",
+              pointRadius: 9,
+            },
+            {
+              label: "Point 2 (x, y2)",
+              data: [],
+              backgroundColor: "#ff4c4c",
+              pointRadius: 9,
+            },
+            {
+              label: "Mic +",
+              data: [{ x: 0.0284, y: 0 }],
+              pointStyle: new Image(),
+              backgroundColor: "transparent",
+              borderColor: "transparent",
+              pointRadius: 6,
+            },
+            {
+              label: "Mic -",
+              data: [{ x: -0.0284, y: 0 }],
+              pointStyle: new Image(),
+              backgroundColor: "transparent",
+              borderColor: "transparent",
+              pointRadius: 6,
+            },
+          ],
+        },
+        options: {
+          animation: false,
+          plugins: {
+            legend: {
+              labels: {
+                color: "#000000",
+              },
+            },
+          },
+
+          scales: {
+            x: {
+              type: "linear",
+              position: "bottom",
+              min: -1,
+              max: 1,
+              ticks: {
+                color: "#000000",
+                callback: function (value) {
+                  return value + " m";
+                },
+              },
+              grid: { color: "#dddddd" },
+              title: {
+                display: true,
+                text: "X-axis (meters)",
+                color: "#000000",
+                font: {
+                  weight: "bold",
+                },
+              },
+            },
+            y: {
+              type: "linear",
+              position: "left",
+              min: -1,
+              max: 1,
+              ticks: {
+                color: "#000000",
+                callback: function (value) {
+                  return value + " m";
+                },
+              },
+              grid: { color: "#dddddd" },
+              title: {
+                display: true,
+                text: "Y-axis (meters)",
+                color: "#000000",
+                font: {
+                  weight: "bold",
+                },
+              },
+            },
+          },
+        },
+      });
+
+      function updateChart(data) {
+        console.log("✅ Updating chart with data:", data);
+        const x = data.x ?? 0;
+        const y1 = data.y1 ?? 0;
+        const y2 = data.y2 ?? 0;
+        chart.data.datasets[0].data = [{ x, y: y1 }];
+        chart.data.datasets[1].data = [{ x, y: y2 }];
+        chart.update();
+      }
+
+      const coordinatesRef = firebase.database().ref("/coordinates:");
+
+      coordinatesRef.on("value", (snapshot) => {
+        const data = snapshot.val();
+        console.log("📦 snapshot.val() =", data);
+
+        if (
+          data &&
+          typeof data.x === "number" &&
+          typeof data.y1 === "number" &&
+          typeof data.y2 === "number"
+        ) {
+          updateChart(data);
+        } else {
+          console.warn("❌ Invalid or missing x/y1/y2 in /coordinates");
+        }
+      });
+    </script>
+  </body>
+</html>
