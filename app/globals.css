@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import 'leaflet/dist/leaflet.css';
 
 html {
 	@apply w-full antialiased;
@@ -164,4 +165,42 @@ html {
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+	height: 100% !important;
+	width: 100% !important;
+	border-radius: 8px;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left {
+	top: 10px;
+	left: 10px;
+}
+
+.leaflet-control-container .leaflet-bottom.leaflet-right {
+	bottom: 10px;
+	right: 10px;
+}
+
+/* Sensor Pulse Animation */
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(16, 185, 129, 0.7);
+	}
+	50% {
+		transform: scale(1.1);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4),
+			0 0 0 10px rgba(16, 185, 129, 0.2);
+	}
+	100% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(16, 185, 129, 0);
+	}
+}
+
+.sensor-pulse {
+	animation: pulse 2s infinite;
 }
