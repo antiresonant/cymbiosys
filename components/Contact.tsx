@@ -172,11 +172,9 @@ export function Contact() {
 									<div>
 										<p className='font-medium'>Our Location</p>
 										<address className='not-italic text-muted-foreground'>
-											123 Conservation Way
+											Gyaneshwor 30
 											<br />
-											Eco Park, Wildlife Region
-											<br />
-											EarthSave, 10101
+											Kathmandu 44600, Nepal
 										</address>
 									</div>
 								</div>
@@ -189,7 +187,7 @@ export function Contact() {
 											href='mailto:info@cymbiosys.com'
 											className='text-muted-foreground hover:text-primary transition-colors'
 										>
-											info@cymbiosys.com
+											hq@cymbiosys.com
 										</a>
 									</div>
 								</div>
@@ -199,10 +197,10 @@ export function Contact() {
 									<div>
 										<p className='font-medium'>Call Us</p>
 										<a
-											href='tel:+15551234567'
+											href='tel:+977xxx-xxx-xxxx'
 											className='text-muted-foreground hover:text-primary transition-colors'
 										>
-											+1 (555) 123-4567
+											+977 (xxx) xxx-xxxx
 										</a>
 									</div>
 								</div>

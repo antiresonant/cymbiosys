@@ -98,7 +98,7 @@ export function Footer({ className }: FooterProps) {
 							</li>
 							<li>
 								<Link
-									href='/about'
+									href='/#about'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									About Us
@@ -106,7 +106,7 @@ export function Footer({ className }: FooterProps) {
 							</li>
 							<li>
 								<Link
-									href='/blog'
+									href='/#blog'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									Blog
@@ -114,7 +114,7 @@ export function Footer({ className }: FooterProps) {
 							</li>
 							<li>
 								<Link
-									href='/contact'
+									href='/#contact'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									Contact Us
@@ -129,7 +129,7 @@ export function Footer({ className }: FooterProps) {
 						<ul className='space-y-2'>
 							<li>
 								<Link
-									href='/resources'
+									href='/#resources'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									Documentation
@@ -137,7 +137,7 @@ export function Footer({ className }: FooterProps) {
 							</li>
 							<li>
 								<Link
-									href='/faq'
+									href='/#faq'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									FAQ
@@ -145,7 +145,7 @@ export function Footer({ className }: FooterProps) {
 							</li>
 							<li>
 								<Link
-									href='/support'
+									href='/#support'
 									className='text-sm text-muted-foreground hover:text-primary'
 								>
 									Support
@@ -158,22 +158,19 @@ export function Footer({ className }: FooterProps) {
 					<div className='space-y-4'>
 						<h3 className='text-lg font-bold'>Contact</h3>
 						<address className='not-italic text-sm text-muted-foreground'>
-							<p>123 Innovation Street</p>
-							<p>Tech City, TC 10101</p>
+							<p>Gyaneshwor 30</p>
+							<p>Kathmandu 44600, Nepal</p>
 						</address>
 						<p className='text-sm text-muted-foreground'>
 							Email:{' '}
-							<a
-								href='mailto:info@cymbiosys.com'
-								className='hover:text-primary'
-							>
-								info@cymbiosys.com
+							<a href='mailto:hq@cymbiosys.com' className='hover:text-primary'>
+								hq@cymbiosys.com
 							</a>
 						</p>
 						<p className='text-sm text-muted-foreground'>
 							Phone:{' '}
-							<a href='tel:+15551234567' className='hover:text-primary'>
-								(555) 123-4567
+							<a href='tel:+977xxx-xxx-xxxx' className='hover:text-primary'>
+								+977 (xxx) xxx-xxxx
 							</a>
 						</p>
 					</div>
