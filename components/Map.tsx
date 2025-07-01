@@ -285,7 +285,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
 										<br />
 										Angle: {sensor.angle}° from North
 										<br />
-										Confidence: {(sensor.sValue * 100).toFixed(1)}%
+										Confidence: {(sensor.sValue ? sensor.sValue * 100 : 0).toFixed(1)}%
 									</span>
 									<div className='mt-2'>
 										<button
