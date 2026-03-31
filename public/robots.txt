@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /alerts
+Disallow: /devices
+Disallow: /map
+
+Sitemap: https://cymbiosys.com/sitemap.xml

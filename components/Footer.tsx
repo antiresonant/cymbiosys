@@ -180,6 +180,12 @@ export function Footer({ className }: FooterProps) {
 					<div className='flex flex-col md:flex-row justify-between items-center gap-4'>
 						<p className='text-sm text-muted-foreground'>
 							© {new Date().getFullYear()} Cymbiosys. All rights reserved.
+							<br />
+							Founded by{' '}
+							<a href='https://polarjsapkota.com' target='_blank' rel='noopener' className='hover:text-primary'>
+								Polarj Sapkota
+							</a>
+							{' '}&mdash; electrical engineer, Kathmandu
 						</p>
 						<div className='flex gap-6'>
 							<Link

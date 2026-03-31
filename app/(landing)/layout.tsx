@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: 'Cymbiosys',
 	description: 'Cymbiosys - A next-gen conservation technology.',
+	verification: {
+		google: 'O72TkkztiF9LKYM-3ZXh6jdQWRbh5neIt84Kj0nsCho',
+	},
 };
 
 export default function RootLayout({
