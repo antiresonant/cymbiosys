@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 	title: 'Cymbiosys',
 	description: 'Cymbiosys - A next-gen conservation technology.',
 	verification: {
-		google: 'O72TkkztiF9LKYM-3ZXh6jdQWRbh5neIt84Kj0nsCho',
+		google: 'k_6-MoV8wmvmIqcRgRGBElf8HIR6Be5GItbDsjmFlXg',
 	},
 };
 
